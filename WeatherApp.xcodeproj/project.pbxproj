@@ -21,6 +21,9 @@
 		DAB28B432BE4FA91001FC02E /* Mainpage.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB28B422BE4FA91001FC02E /* Mainpage.xib */; };
 		DADCEF392BE51B110008E95A /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF382BE51B110008E95A /* NetworkAPI.swift */; };
 		DADCEF3C2BE51B810008E95A /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF3B2BE51B810008E95A /* WeatherModel.swift */; };
+		DADCEF3F2BE5281C0008E95A /* WeatherDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF3E2BE5281C0008E95A /* WeatherDate.swift */; };
+		DADCEF442BE5323A0008E95A /* ShowDailyWeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DADCEF432BE5323A0008E95A /* ShowDailyWeatherTableViewCell.xib */; };
+		DADCEF452BE5323A0008E95A /* ShowDailyWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF422BE5323A0008E95A /* ShowDailyWeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		DAB28B422BE4FA91001FC02E /* Mainpage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Mainpage.xib; sourceTree = "<group>"; };
 		DADCEF382BE51B110008E95A /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		DADCEF3B2BE51B810008E95A /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		DADCEF3E2BE5281C0008E95A /* WeatherDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDate.swift; sourceTree = "<group>"; };
+		DADCEF422BE5323A0008E95A /* ShowDailyWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDailyWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		DADCEF432BE5323A0008E95A /* ShowDailyWeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowDailyWeatherTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,8 @@
 		DAB28B1B2BE4E9C6001FC02E /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				DADCEF402BE531EE0008E95A /* UITableViewCell */,
+				DADCEF3D2BE528130008E95A /* Class */,
 				DADCEF3A2BE51B790008E95A /* Model */,
 				DADCEF362BE51AF00008E95A /* Network */,
 				DAB28B302BE4EAE5001FC02E /* Feature */,
@@ -139,6 +147,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DADCEF3D2BE528130008E95A /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				DADCEF3E2BE5281C0008E95A /* WeatherDate.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		DADCEF402BE531EE0008E95A /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DADCEF412BE531F90008E95A /* ShowDailyWeatherTableViewCell */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		DADCEF412BE531F90008E95A /* ShowDailyWeatherTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DADCEF422BE5323A0008E95A /* ShowDailyWeatherTableViewCell.swift */,
+				DADCEF432BE5323A0008E95A /* ShowDailyWeatherTableViewCell.xib */,
+			);
+			path = ShowDailyWeatherTableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,6 +233,7 @@
 				DAB28B262BE4E9CB001FC02E /* Assets.xcassets in Resources */,
 				DAB28B292BE4E9CB001FC02E /* Base in Resources */,
 				DAB28B432BE4FA91001FC02E /* Mainpage.xib in Resources */,
+				DADCEF442BE5323A0008E95A /* ShowDailyWeatherTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +251,8 @@
 				DAB28B3D2BE4EB2D001FC02E /* MainpageWorker.swift in Sources */,
 				DAB28B3E2BE4EB2D001FC02E /* MainpageRouter.swift in Sources */,
 				DAB28B3F2BE4EB2D001FC02E /* MainpageModels.swift in Sources */,
+				DADCEF3F2BE5281C0008E95A /* WeatherDate.swift in Sources */,
+				DADCEF452BE5323A0008E95A /* ShowDailyWeatherTableViewCell.swift in Sources */,
 				DAB28B402BE4EB2D001FC02E /* MainpageViewController.swift in Sources */,
 				DAB28B412BE4EB2D001FC02E /* MainpageInteractor.swift in Sources */,
 				DAB28B1F2BE4E9C6001FC02E /* SceneDelegate.swift in Sources */,

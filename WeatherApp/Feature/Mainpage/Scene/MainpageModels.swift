@@ -37,17 +37,19 @@ enum Mainpage
         }
         
         struct Response {
-            var date: [String] = []
             var dateName: [String] = []
+            var shortDate: [String] = []
             var minTemp: [String] = []
             var maxTemp: [String] = []
+            var unitTemp: String = ""
         }
         
         struct ViewModel {
-            var date: [String] = []
             var dateName: [String] = []
+            var shortDate: [String] = []
             var minTemp: [String] = []
             var maxTemp: [String] = []
+            var unitTemp: String = ""
         }
     }
     

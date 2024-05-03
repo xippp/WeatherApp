@@ -16,7 +16,12 @@ class MainpageViewController: UIViewController
 {
   var interactor: MainpageBusinessLogic?
   var router: (NSObjectProtocol & MainpageRoutingLogic & MainpageDataPassing)?
-
+    var countTemp = 0
+    var minTemp: [String] = []
+    var maxTemp: [String] = []
+    var unitTemp = ""
+    var dateName: [String] = []
+    var date: [String] = []
 //    MARK: -IBOutlet Property
     
     
@@ -29,8 +34,10 @@ class MainpageViewController: UIViewController
     
     @IBOutlet weak var weatherTableView: UITableView! {
         didSet {
+            weatherTableView.register(UINib(nibName: "ShowDailyWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: "DailyWeatherCell")
             weatherTableView.delegate = self
             weatherTableView.dataSource = self
+
         }
     }
     
@@ -92,7 +99,7 @@ class MainpageViewController: UIViewController
     
     func getWeatherDaily() {
         let request = Mainpage.GetWeatherDaily.Request()
-//        interactor?.getWeatherDaily(request: request)
+        interactor?.getWeatherDaily(request: request)
     }
   
 }
@@ -100,6 +107,8 @@ class MainpageViewController: UIViewController
 protocol MainpageDisplayLogic: class
 {
     func displayFetchedWeather(viewModel: Mainpage.FetchWeatherModel.ViewModel)
+    func displayGetWeatherDaily(viewModel: Mainpage.GetWeatherDaily.ViewModel)
+    
 }
 
 extension MainpageViewController: MainpageDisplayLogic {
@@ -120,6 +129,19 @@ extension MainpageViewController: MainpageDisplayLogic {
         }
     }
     
+    func displayGetWeatherDaily(viewModel: Mainpage.GetWeatherDaily.ViewModel) {
+        self.countTemp = viewModel.maxTemp.count
+        self.minTemp = viewModel.minTemp
+        self.maxTemp = viewModel.maxTemp
+        self.unitTemp = viewModel.unitTemp
+        self.dateName = viewModel.dateName
+        self.date = viewModel.shortDate
+        DispatchQueue.main.async {
+            self.temTitleLabel.text = "\(viewModel.minTemp[0])\(viewModel.unitTemp)/\(viewModel.maxTemp[0])\(viewModel.unitTemp)"
+            self.weatherTableView.reloadData()
+        }
+    }
+    
 }
 
 //MARK: -DataSource and Delegate TableView
@@ -127,12 +149,19 @@ extension MainpageViewController: MainpageDisplayLogic {
 extension MainpageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return self.countTemp
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyWeatherCell", for: indexPath) as? ShowDailyWeatherTableViewCell else { return UITableViewCell() }
+        cell.firstLabel.text = self.date[indexPath.row]
+        cell.midLabel.text = self.dateName[indexPath.row]
+        cell.lastLabel.text = "\(self.minTemp[indexPath.row])\(self.unitTemp)/\(self.maxTemp[indexPath.row])\(self.unitTemp)"
+        return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
     
 }

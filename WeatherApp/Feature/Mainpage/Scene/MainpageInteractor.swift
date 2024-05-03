@@ -15,6 +15,7 @@ import UIKit
 protocol MainpageBusinessLogic
 {
     func fetchWeather(request: Mainpage.FetchWeatherModel.Request)
+    func getWeatherDaily(request: Mainpage.GetWeatherDaily.Request)
 }
 
 protocol MainpageDataStore
@@ -24,14 +25,14 @@ protocol MainpageDataStore
 
 class MainpageInteractor: MainpageBusinessLogic, MainpageDataStore
 {
-  var presenter: MainpagePresentationLogic?
-  var worker: MainpageWorker?
+    var presenter: MainpagePresentationLogic?
+    var worker: MainpageWorker?
     let network = NetworkAPI()
     var allData: WeatherModel?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
+    //var name: String = ""
+    
+    // MARK: Do something
+    
     
     func fetchWeather(request: Mainpage.FetchWeatherModel.Request) {
         
@@ -47,5 +48,17 @@ class MainpageInteractor: MainpageBusinessLogic, MainpageDataStore
             }
         }
     }
-
+    
+    func getWeatherDaily(request: Mainpage.GetWeatherDaily.Request) {
+        let weatherDate = WeatherDate()
+        let sumDateString = weatherDate.formatDateString(dates: self.allData?.daily.time ?? [])
+        let minTemp = self.allData?.daily.temperature2MMin.map { String($0)}
+        let maxTemp = self.allData?.daily.temperature2MMax.map { String($0)}
+        let response = Mainpage.GetWeatherDaily.Response(dateName: sumDateString.dateName,
+                                                         shortDate: sumDateString.shortDate,
+                                                         minTemp: minTemp ?? [],
+                                                         maxTemp: maxTemp ?? [],
+                                                         unitTemp: self.allData?.dailyUnits.temperature2MMax ?? "")
+        self.presenter?.presentGetWeatherDaily(response: response)
+    }
 }

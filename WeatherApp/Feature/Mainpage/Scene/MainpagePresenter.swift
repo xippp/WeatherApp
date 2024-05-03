@@ -15,6 +15,7 @@ import UIKit
 protocol MainpagePresentationLogic
 {
     func fetchedWeather(response: Mainpage.FetchWeatherModel.Response)
+    func presentGetWeatherDaily(response: Mainpage.GetWeatherDaily.Response)
 }
 
 class MainpagePresenter: MainpagePresentationLogic
@@ -26,6 +27,11 @@ class MainpagePresenter: MainpagePresentationLogic
     func fetchedWeather(response: Mainpage.FetchWeatherModel.Response) {
         let viewModel = Mainpage.FetchWeatherModel.ViewModel(status: response.status)
         viewController?.displayFetchedWeather(viewModel: viewModel)
+    }
+    
+    func presentGetWeatherDaily(response: Mainpage.GetWeatherDaily.Response) {
+        let viewModel = Mainpage.GetWeatherDaily.ViewModel(dateName: response.dateName, shortDate: response.shortDate, minTemp: response.minTemp, maxTemp: response.maxTemp, unitTemp: response.unitTemp)
+        viewController?.displayGetWeatherDaily(viewModel: viewModel)
     }
     
 
