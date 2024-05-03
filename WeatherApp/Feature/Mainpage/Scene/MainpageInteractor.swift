@@ -16,11 +16,16 @@ protocol MainpageBusinessLogic
 {
     func fetchWeather(request: Mainpage.FetchWeatherModel.Request)
     func getWeatherDaily(request: Mainpage.GetWeatherDaily.Request)
+    func selectWeatherDate(request: Mainpage.SelectWeatherDate.Request)
 }
 
 protocol MainpageDataStore
 {
   //var name: String { get set }
+    var titleDate: String { get set }
+    var timeArray: [String] { get set }
+    var tempArray: [String] { get set }
+    var tempUnit: String { get set }
 }
 
 class MainpageInteractor: MainpageBusinessLogic, MainpageDataStore
@@ -29,6 +34,10 @@ class MainpageInteractor: MainpageBusinessLogic, MainpageDataStore
     var worker: MainpageWorker?
     let network = NetworkAPI()
     var allData: WeatherModel?
+    var titleDate: String = ""
+    var timeArray: [String] = []
+    var tempArray: [String] = []
+    var tempUnit: String = ""
     //var name: String = ""
     
     // MARK: Do something
@@ -61,4 +70,16 @@ class MainpageInteractor: MainpageBusinessLogic, MainpageDataStore
                                                          unitTemp: self.allData?.dailyUnits.temperature2MMax ?? "")
         self.presenter?.presentGetWeatherDaily(response: response)
     }
+    
+    func selectWeatherDate(request: Mainpage.SelectWeatherDate.Request) {
+        let selectDate = self.allData?.daily.time[request.index] ?? ""
+        let weatherDate = WeatherDate()
+        titleDate = weatherDate.formatDateTitle(date: selectDate)
+        timeArray = weatherDate.getTimeDate(dates: self.allData?.hourly.time ?? [])
+        tempArray = self.allData?.hourly.temperature2M.map { String($0) } ?? []
+        tempUnit = self.allData?.hourlyUnits.temperature2M ?? ""
+        let response = Mainpage.SelectWeatherDate.Response()
+        self.presenter?.presentSelectWeatherDate(response: response)
+    }
+    
 }

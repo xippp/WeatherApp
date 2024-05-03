@@ -24,6 +24,13 @@
 		DADCEF3F2BE5281C0008E95A /* WeatherDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF3E2BE5281C0008E95A /* WeatherDate.swift */; };
 		DADCEF442BE5323A0008E95A /* ShowDailyWeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DADCEF432BE5323A0008E95A /* ShowDailyWeatherTableViewCell.xib */; };
 		DADCEF452BE5323A0008E95A /* ShowDailyWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF422BE5323A0008E95A /* ShowDailyWeatherTableViewCell.swift */; };
+		DADCEF4F2BE54DA30008E95A /* SelectDateWeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF492BE54DA30008E95A /* SelectDateWeatherPresenter.swift */; };
+		DADCEF502BE54DA30008E95A /* SelectDateWeatherWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF4A2BE54DA30008E95A /* SelectDateWeatherWorker.swift */; };
+		DADCEF512BE54DA30008E95A /* SelectDateWeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF4B2BE54DA30008E95A /* SelectDateWeatherRouter.swift */; };
+		DADCEF522BE54DA30008E95A /* SelectDateWeatherModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF4C2BE54DA30008E95A /* SelectDateWeatherModels.swift */; };
+		DADCEF532BE54DA30008E95A /* SelectDateWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF4D2BE54DA30008E95A /* SelectDateWeatherViewController.swift */; };
+		DADCEF542BE54DA30008E95A /* SelectDateWeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF4E2BE54DA30008E95A /* SelectDateWeatherInteractor.swift */; };
+		DADCEF562BE54DB10008E95A /* SelectDateWeather.xib in Resources */ = {isa = PBXBuildFile; fileRef = DADCEF552BE54DB10008E95A /* SelectDateWeather.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +53,13 @@
 		DADCEF3E2BE5281C0008E95A /* WeatherDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDate.swift; sourceTree = "<group>"; };
 		DADCEF422BE5323A0008E95A /* ShowDailyWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDailyWeatherTableViewCell.swift; sourceTree = "<group>"; };
 		DADCEF432BE5323A0008E95A /* ShowDailyWeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowDailyWeatherTableViewCell.xib; sourceTree = "<group>"; };
+		DADCEF492BE54DA30008E95A /* SelectDateWeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateWeatherPresenter.swift; sourceTree = "<group>"; };
+		DADCEF4A2BE54DA30008E95A /* SelectDateWeatherWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateWeatherWorker.swift; sourceTree = "<group>"; };
+		DADCEF4B2BE54DA30008E95A /* SelectDateWeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateWeatherRouter.swift; sourceTree = "<group>"; };
+		DADCEF4C2BE54DA30008E95A /* SelectDateWeatherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateWeatherModels.swift; sourceTree = "<group>"; };
+		DADCEF4D2BE54DA30008E95A /* SelectDateWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateWeatherViewController.swift; sourceTree = "<group>"; };
+		DADCEF4E2BE54DA30008E95A /* SelectDateWeatherInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateWeatherInteractor.swift; sourceTree = "<group>"; };
+		DADCEF552BE54DB10008E95A /* SelectDateWeather.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDateWeather.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +110,7 @@
 		DAB28B302BE4EAE5001FC02E /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DADCEF462BE54D7D0008E95A /* SelectDateWeather */,
 				DAB28B312BE4EAEA001FC02E /* Mainpage */,
 			);
 			path = Feature;
@@ -172,6 +187,36 @@
 			path = ShowDailyWeatherTableViewCell;
 			sourceTree = "<group>";
 		};
+		DADCEF462BE54D7D0008E95A /* SelectDateWeather */ = {
+			isa = PBXGroup;
+			children = (
+				DADCEF482BE54D970008E95A /* Xib */,
+				DADCEF472BE54D910008E95A /* Scene */,
+			);
+			path = SelectDateWeather;
+			sourceTree = "<group>";
+		};
+		DADCEF472BE54D910008E95A /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				DADCEF492BE54DA30008E95A /* SelectDateWeatherPresenter.swift */,
+				DADCEF4A2BE54DA30008E95A /* SelectDateWeatherWorker.swift */,
+				DADCEF4B2BE54DA30008E95A /* SelectDateWeatherRouter.swift */,
+				DADCEF4C2BE54DA30008E95A /* SelectDateWeatherModels.swift */,
+				DADCEF4D2BE54DA30008E95A /* SelectDateWeatherViewController.swift */,
+				DADCEF4E2BE54DA30008E95A /* SelectDateWeatherInteractor.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		DADCEF482BE54D970008E95A /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				DADCEF552BE54DB10008E95A /* SelectDateWeather.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,6 +278,7 @@
 				DAB28B262BE4E9CB001FC02E /* Assets.xcassets in Resources */,
 				DAB28B292BE4E9CB001FC02E /* Base in Resources */,
 				DAB28B432BE4FA91001FC02E /* Mainpage.xib in Resources */,
+				DADCEF562BE54DB10008E95A /* SelectDateWeather.xib in Resources */,
 				DADCEF442BE5323A0008E95A /* ShowDailyWeatherTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +303,12 @@
 				DAB28B412BE4EB2D001FC02E /* MainpageInteractor.swift in Sources */,
 				DAB28B1F2BE4E9C6001FC02E /* SceneDelegate.swift in Sources */,
 				DADCEF3C2BE51B810008E95A /* WeatherModel.swift in Sources */,
+				DADCEF4F2BE54DA30008E95A /* SelectDateWeatherPresenter.swift in Sources */,
+				DADCEF502BE54DA30008E95A /* SelectDateWeatherWorker.swift in Sources */,
+				DADCEF512BE54DA30008E95A /* SelectDateWeatherRouter.swift in Sources */,
+				DADCEF522BE54DA30008E95A /* SelectDateWeatherModels.swift in Sources */,
+				DADCEF532BE54DA30008E95A /* SelectDateWeatherViewController.swift in Sources */,
+				DADCEF542BE54DA30008E95A /* SelectDateWeatherInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

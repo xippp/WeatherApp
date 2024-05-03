@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol MainpageRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToSelectDateWeather()
 }
 
 protocol MainpageDataPassing
@@ -29,32 +29,25 @@ class MainpageRouter: NSObject, MainpageRoutingLogic, MainpageDataPassing
   
   // MARK: Routing
   
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+    func routeToSelectDateWeather() {
+        let destinationVC = SelectDateWeatherViewController(nibName: "SelectDateWeather", bundle: nil)
+        var destinationDS = destinationVC.router!.dataStore!
+        passToSelectDateWeather(source: dataStore!, destination: &destinationDS)
+        navigationToSelectDateWeather(source: viewController!, destination: destinationVC)
+    }
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: MainpageViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+    func navigationToSelectDateWeather(source: MainpageViewController, destination: SelectDateWeatherViewController) {
+        source.navigationController?.pushViewController(destination, animated: true)
+    }
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: MainpageDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    func passToSelectDateWeather(source: MainpageDataStore, destination: inout SelectDateWeatherDataStore) {
+        destination.titleDate = source.titleDate
+        destination.timeArray = source.timeArray
+        destination.tempUnit = source.tempUnit
+        destination.tempArray = source.tempArray
+    }
 }

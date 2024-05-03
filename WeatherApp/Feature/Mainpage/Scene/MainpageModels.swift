@@ -53,5 +53,19 @@ enum Mainpage
         }
     }
     
+    enum SelectWeatherDate {
+        struct Request {
+            var index: Int
+        }
+        
+        struct Response {
+            
+        }
+        
+        struct ViewModel {
+            
+        }
+    }
+    
  
 }

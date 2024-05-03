@@ -9,6 +9,43 @@ import Foundation
 
 class WeatherDate {
     
+    func getTimeDate(dates: [String]) -> [String] {
+        let formatterDate = DateFormatter()
+        var dateArray: [Date] = []
+        var timeArray: [String] = []
+        formatterDate.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        formatterDate.locale = Locale(identifier: "en_UK")
+        formatterDate.calendar = Calendar(identifier: .gregorian)
+        for date in dates {
+            dateArray.append(formatterDate.date(from: date)!)
+        }
+        let formatterString = DateFormatter()
+        formatterString.dateFormat = "h a"
+        formatterString.locale = Locale(identifier: "en_UK")
+        formatterString.calendar = Calendar(identifier: .gregorian)
+        formatterString.timeZone = TimeZone(identifier: "Asia/Bangkok")
+        for date in dateArray {
+            timeArray.append(formatterString.string(from: date))
+        }
+        return timeArray
+    }
+    
+    func formatDateTitle(date: String) -> String {
+        let formatterDate = DateFormatter()
+        formatterDate.dateFormat = "yyyy-MM-dd"
+        formatterDate.locale = Locale(identifier: "en_UK")
+        formatterDate.calendar = Calendar(identifier: .gregorian)
+        let dateformat = formatterDate.date(from: date)!
+        let formatterString = DateFormatter()
+        formatterString.dateFormat = "EEEE,MM dd"
+        formatterString.locale = Locale(identifier: "en_UK")
+        formatterString.calendar = Calendar(identifier: .gregorian)
+        formatterString.timeZone = TimeZone(identifier: "Asia/Bangkok")
+        let dateString = formatterString.string(from: dateformat)
+        
+        return dateString
+    }
+    
     func formatDateString(dates: [String]) -> (dateName: [String], shortDate: [String]) {
         let formatterDate = DateFormatter()
         var dates2: [Date] = []

@@ -101,6 +101,11 @@ class MainpageViewController: UIViewController
         let request = Mainpage.GetWeatherDaily.Request()
         interactor?.getWeatherDaily(request: request)
     }
+    
+    func selectWeatherDate(index: Int) {
+        let request = Mainpage.SelectWeatherDate.Request(index: index)
+        interactor?.selectWeatherDate(request: request)
+    }
   
 }
 
@@ -108,6 +113,7 @@ protocol MainpageDisplayLogic: class
 {
     func displayFetchedWeather(viewModel: Mainpage.FetchWeatherModel.ViewModel)
     func displayGetWeatherDaily(viewModel: Mainpage.GetWeatherDaily.ViewModel)
+    func displaySelectWeatherDate(viewModel: Mainpage.SelectWeatherDate.ViewModel)
     
 }
 
@@ -140,6 +146,10 @@ extension MainpageViewController: MainpageDisplayLogic {
             self.temTitleLabel.text = "\(viewModel.minTemp[0])\(viewModel.unitTemp)/\(viewModel.maxTemp[0])\(viewModel.unitTemp)"
             self.weatherTableView.reloadData()
         }
+    }
+    
+    func displaySelectWeatherDate(viewModel: Mainpage.SelectWeatherDate.ViewModel) {
+        self.router?.routeToSelectDateWeather()
     }
     
 }

@@ -16,6 +16,7 @@ protocol MainpagePresentationLogic
 {
     func fetchedWeather(response: Mainpage.FetchWeatherModel.Response)
     func presentGetWeatherDaily(response: Mainpage.GetWeatherDaily.Response)
+    func presentSelectWeatherDate(response: Mainpage.SelectWeatherDate.Response)
 }
 
 class MainpagePresenter: MainpagePresentationLogic
@@ -34,5 +35,9 @@ class MainpagePresenter: MainpagePresentationLogic
         viewController?.displayGetWeatherDaily(viewModel: viewModel)
     }
     
+    func presentSelectWeatherDate(response: Mainpage.SelectWeatherDate.Response) {
+        let viewModel = Mainpage.SelectWeatherDate.ViewModel()
+        viewController?.displaySelectWeatherDate(viewModel: viewModel)
+    }
 
 }
