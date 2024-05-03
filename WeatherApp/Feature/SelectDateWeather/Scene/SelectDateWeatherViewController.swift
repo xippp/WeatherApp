@@ -129,7 +129,8 @@ extension SelectDateWeatherViewController: UITableViewDelegate, UITableViewDataS
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyWeatherCell", for: indexPath) as? ShowDailyWeatherTableViewCell else { return UITableViewCell() }
         cell.firstLabel.text = self.dataDispaly?.timeArray[indexPath.row]
         cell.midLabel.isHidden = true
-        cell.lastLabel.text = self.dataDispaly?.tempArray[indexPath.row]
+        cell.lastLabel.text = "\(self.dataDispaly?.tempArray[indexPath.row] ?? "")\(self.dataDispaly?.tempUnit ?? "")"
+        cell.selectionStyle = .none
         return cell
     }
     

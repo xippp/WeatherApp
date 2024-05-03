@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A0126A3E-5735-456A-A47F-5FB6E5016BA5"
+            uuid = "8D3DA1BF-2486-4751-8D6A-55D126635C36"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherApp/Feature/Mainpage/Scene/MainpageInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "selectWeatherDate(request:)"
             landmarkType = "7">
          </BreakpointContent>

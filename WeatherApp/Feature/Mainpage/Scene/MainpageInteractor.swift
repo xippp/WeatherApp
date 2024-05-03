@@ -77,15 +77,17 @@ class MainpageInteractor: MainpageBusinessLogic, MainpageDataStore
         var startTemp = request.index * 24
         var stopTemp = 0
         var timeFilter: [String] = []
+        self.tempArray = []
+        self.timeArray = []
         if request.index != 0 {
-            stopTemp = (request.index * 24) - 1
+            stopTemp = ((request.index + 1) * 24) - 1
         } else {
             stopTemp = 23
         }
         titleDate = weatherDate.formatDateTitle(date: selectDate)
         for i in startTemp...stopTemp {
             timeFilter.append(String(self.allData?.hourly.time[i] ?? ""))
-            tempArray.append(String(self.allData?.hourly.temperature2M[i] ?? 0.0))
+            self.tempArray.append(String(self.allData?.hourly.temperature2M[i] ?? 0.0))
         }
         timeArray = weatherDate.getTimeDate(dates: timeFilter)
         tempUnit = self.allData?.hourlyUnits.temperature2M ?? ""

@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainpageViewController" customModule="WeatherApp" customModuleProvider="target">
             <connections>
                 <outlet property="temTitleLabel" destination="zNQ-Xj-YTK" id="cWW-tC-JLb"/>
+                <outlet property="titleButton" destination="OxW-4c-F7W" id="Vl4-LW-gZp"/>
                 <outlet property="view" destination="iN0-l3-epB" id="u20-m5-FeR"/>
                 <outlet property="weatherTableView" destination="YVA-EK-82p" id="4fT-kR-0CU"/>
             </connections>
@@ -24,28 +25,40 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ry8-Qt-AGG">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNQ-Xj-YTK">
-                                    <rect key="frame" x="20" y="58.333333333333329" width="353" height="33.666666666666671"/>
+                                    <rect key="frame" x="20" y="23.333333333333325" width="353" height="33.666666666666657"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxW-4c-F7W">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <action selector="SelectTitleDate:" destination="-1" eventType="touchUpInside" id="iQm-4p-De5"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="OxW-4c-F7W" secondAttribute="trailing" id="4Gi-v9-dLL"/>
                                 <constraint firstItem="zNQ-Xj-YTK" firstAttribute="leading" secondItem="ry8-Qt-AGG" secondAttribute="leading" constant="20" id="7c4-rW-xdh"/>
                                 <constraint firstItem="zNQ-Xj-YTK" firstAttribute="centerY" secondItem="ry8-Qt-AGG" secondAttribute="centerY" id="9j7-3K-qnt"/>
                                 <constraint firstItem="zNQ-Xj-YTK" firstAttribute="centerX" secondItem="ry8-Qt-AGG" secondAttribute="centerX" id="EEs-3E-Hxw"/>
-                                <constraint firstAttribute="height" constant="150" id="ZtK-7O-HvL"/>
+                                <constraint firstAttribute="height" constant="80" id="ZtK-7O-HvL"/>
+                                <constraint firstItem="OxW-4c-F7W" firstAttribute="top" secondItem="ry8-Qt-AGG" secondAttribute="top" id="aFu-61-tWw"/>
+                                <constraint firstItem="OxW-4c-F7W" firstAttribute="leading" secondItem="ry8-Qt-AGG" secondAttribute="leading" id="f9O-sj-Auh"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zNQ-Xj-YTK" secondAttribute="trailing" constant="20" id="l6G-ly-v8q"/>
+                                <constraint firstAttribute="bottom" secondItem="OxW-4c-F7W" secondAttribute="bottom" id="nX0-0K-aHX"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3D-b1-2UX">
-                            <rect key="frame" x="0.0" y="150" width="393" height="609"/>
+                            <rect key="frame" x="0.0" y="80" width="393" height="679"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YVA-EK-82p">
-                                    <rect key="frame" x="20" y="0.0" width="353" height="609"/>
+                                    <rect key="frame" x="20" y="0.0" width="353" height="679"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableView>
                             </subviews>

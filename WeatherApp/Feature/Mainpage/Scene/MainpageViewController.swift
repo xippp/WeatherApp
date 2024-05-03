@@ -25,11 +25,7 @@ class MainpageViewController: UIViewController
 //    MARK: -IBOutlet Property
     
     
-    @IBOutlet weak var temTitleLabel: UILabel! {
-        didSet {
-            temTitleLabel.text = "28/38"
-        }
-    }
+    @IBOutlet weak var temTitleLabel: UILabel!
     
     
     @IBOutlet weak var weatherTableView: UITableView! {
@@ -41,6 +37,18 @@ class MainpageViewController: UIViewController
         }
     }
     
+    @IBOutlet weak var titleButton: UIButton! {
+        didSet {
+            titleButton.setTitle("", for: .normal)
+        }
+    }
+    
+//    MARK: -IBAction
+    
+    
+    @IBAction func SelectTitleDate(_ sender: Any) {
+        self.selectWeatherDate(index: 0)
+    }
     
   // MARK: Object lifecycle
   
@@ -168,6 +176,7 @@ extension MainpageViewController: UITableViewDelegate, UITableViewDataSource {
         cell.firstLabel.text = self.date[indexPath.row]
         cell.midLabel.text = self.dateName[indexPath.row]
         cell.lastLabel.text = "\(self.minTemp[indexPath.row])\(self.unitTemp)/\(self.maxTemp[indexPath.row])\(self.unitTemp)"
+        cell.selectionStyle = .none
         return cell
     }
     
