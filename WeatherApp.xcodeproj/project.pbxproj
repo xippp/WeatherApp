@@ -12,6 +12,13 @@
 		DAB28B212BE4E9C6001FC02E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB28B202BE4E9C6001FC02E /* ViewController.swift */; };
 		DAB28B262BE4E9CB001FC02E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB28B252BE4E9CB001FC02E /* Assets.xcassets */; };
 		DAB28B292BE4E9CB001FC02E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DAB28B282BE4E9CB001FC02E /* Base */; };
+		DAB28B352BE4EB15001FC02E /* Mainpage.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB28B342BE4EB15001FC02E /* Mainpage.xib */; };
+		DAB28B3C2BE4EB2D001FC02E /* MainpagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB28B362BE4EB2D001FC02E /* MainpagePresenter.swift */; };
+		DAB28B3D2BE4EB2D001FC02E /* MainpageWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB28B372BE4EB2D001FC02E /* MainpageWorker.swift */; };
+		DAB28B3E2BE4EB2D001FC02E /* MainpageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB28B382BE4EB2D001FC02E /* MainpageRouter.swift */; };
+		DAB28B3F2BE4EB2D001FC02E /* MainpageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB28B392BE4EB2D001FC02E /* MainpageModels.swift */; };
+		DAB28B402BE4EB2D001FC02E /* MainpageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB28B3A2BE4EB2D001FC02E /* MainpageViewController.swift */; };
+		DAB28B412BE4EB2D001FC02E /* MainpageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB28B3B2BE4EB2D001FC02E /* MainpageInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		DAB28B252BE4E9CB001FC02E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB28B282BE4E9CB001FC02E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB28B2A2BE4E9CB001FC02E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB28B342BE4EB15001FC02E /* Mainpage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Mainpage.xib; path = "../../../../../../Library/Mobile Documents/.Trash/WeatherApp/WeatherApp/Feature/Mainpage/Xib/Mainpage.xib"; sourceTree = "<group>"; };
+		DAB28B362BE4EB2D001FC02E /* MainpagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpagePresenter.swift; sourceTree = "<group>"; };
+		DAB28B372BE4EB2D001FC02E /* MainpageWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageWorker.swift; sourceTree = "<group>"; };
+		DAB28B382BE4EB2D001FC02E /* MainpageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageRouter.swift; sourceTree = "<group>"; };
+		DAB28B392BE4EB2D001FC02E /* MainpageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageModels.swift; sourceTree = "<group>"; };
+		DAB28B3A2BE4EB2D001FC02E /* MainpageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageViewController.swift; sourceTree = "<group>"; };
+		DAB28B3B2BE4EB2D001FC02E /* MainpageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 		DAB28B1B2BE4E9C6001FC02E /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				DAB28B302BE4EAE5001FC02E /* Feature */,
 				DAB28B1C2BE4E9C6001FC02E /* AppDelegate.swift */,
 				DAB28B1E2BE4E9C6001FC02E /* SceneDelegate.swift */,
 				DAB28B202BE4E9C6001FC02E /* ViewController.swift */,
@@ -62,6 +77,44 @@
 				DAB28B2A2BE4E9CB001FC02E /* Info.plist */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		DAB28B302BE4EAE5001FC02E /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				DAB28B312BE4EAEA001FC02E /* Mainpage */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		DAB28B312BE4EAEA001FC02E /* Mainpage */ = {
+			isa = PBXGroup;
+			children = (
+				DAB28B332BE4EAF7001FC02E /* Xib */,
+				DAB28B322BE4EAEF001FC02E /* Scene */,
+			);
+			path = Mainpage;
+			sourceTree = "<group>";
+		};
+		DAB28B322BE4EAEF001FC02E /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				DAB28B362BE4EB2D001FC02E /* MainpagePresenter.swift */,
+				DAB28B372BE4EB2D001FC02E /* MainpageWorker.swift */,
+				DAB28B382BE4EB2D001FC02E /* MainpageRouter.swift */,
+				DAB28B392BE4EB2D001FC02E /* MainpageModels.swift */,
+				DAB28B3A2BE4EB2D001FC02E /* MainpageViewController.swift */,
+				DAB28B3B2BE4EB2D001FC02E /* MainpageInteractor.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		DAB28B332BE4EAF7001FC02E /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				DAB28B342BE4EB15001FC02E /* Mainpage.xib */,
+			);
+			path = Xib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +177,7 @@
 			files = (
 				DAB28B262BE4E9CB001FC02E /* Assets.xcassets in Resources */,
 				DAB28B292BE4E9CB001FC02E /* Base in Resources */,
+				DAB28B352BE4EB15001FC02E /* Mainpage.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +190,12 @@
 			files = (
 				DAB28B212BE4E9C6001FC02E /* ViewController.swift in Sources */,
 				DAB28B1D2BE4E9C6001FC02E /* AppDelegate.swift in Sources */,
+				DAB28B3C2BE4EB2D001FC02E /* MainpagePresenter.swift in Sources */,
+				DAB28B3D2BE4EB2D001FC02E /* MainpageWorker.swift in Sources */,
+				DAB28B3E2BE4EB2D001FC02E /* MainpageRouter.swift in Sources */,
+				DAB28B3F2BE4EB2D001FC02E /* MainpageModels.swift in Sources */,
+				DAB28B402BE4EB2D001FC02E /* MainpageViewController.swift in Sources */,
+				DAB28B412BE4EB2D001FC02E /* MainpageInteractor.swift in Sources */,
 				DAB28B1F2BE4E9C6001FC02E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
