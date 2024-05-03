@@ -16,16 +16,40 @@ enum Mainpage
 {
   // MARK: Use cases
   
-  enum Something
-  {
-    struct Request
-    {
+    enum FetchWeatherModel {
+        struct Request {
+            
+        }
+        
+        struct Response {
+            var status: NetworkStatus
+        }
+        
+        struct ViewModel {
+            var status: NetworkStatus
+        }
     }
-    struct Response
-    {
+    
+    enum GetWeatherDaily {
+        
+        struct Request {
+            
+        }
+        
+        struct Response {
+            var date: [String] = []
+            var dateName: [String] = []
+            var minTemp: [String] = []
+            var maxTemp: [String] = []
+        }
+        
+        struct ViewModel {
+            var date: [String] = []
+            var dateName: [String] = []
+            var minTemp: [String] = []
+            var maxTemp: [String] = []
+        }
     }
-    struct ViewModel
-    {
-    }
-  }
+    
+ 
 }

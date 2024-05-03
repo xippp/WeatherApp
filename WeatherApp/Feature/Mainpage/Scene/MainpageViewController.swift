@@ -82,32 +82,44 @@ class MainpageViewController: UIViewController
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+    fetchWeather()
   }
   
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = Mainpage.Something.Request()
-    interactor?.doSomething(request: request)
-  }
+    func fetchWeather() {
+        let request = Mainpage.FetchWeatherModel.Request()
+        interactor?.fetchWeather(request: request)
+    }
+    
+    func getWeatherDaily() {
+        let request = Mainpage.GetWeatherDaily.Request()
+//        interactor?.getWeatherDaily(request: request)
+    }
   
 }
 
 protocol MainpageDisplayLogic: class
 {
-  func displaySomething(viewModel: Mainpage.Something.ViewModel)
+    func displayFetchedWeather(viewModel: Mainpage.FetchWeatherModel.ViewModel)
 }
 
 extension MainpageViewController: MainpageDisplayLogic {
     
-    func displaySomething(viewModel: Mainpage.Something.ViewModel)
-    {
-      //nameTextField.text = viewModel.name
+    func displayFetchedWeather(viewModel: Mainpage.FetchWeatherModel.ViewModel) {
+        switch viewModel.status {
+        case .success:
+            self.getWeatherDaily()
+        case .failure(let err):
+            switch err {
+            case .urlError:
+                print("URL Error")
+            case .cannotParseData:
+                print("Cannot Parse Data")
+            case .unexpectedError:
+                print("Unexpect Error")
+            }
+        }
     }
+    
 }
 
 //MARK: -DataSource and Delegate TableView

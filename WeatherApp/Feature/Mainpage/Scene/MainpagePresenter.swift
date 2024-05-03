@@ -14,7 +14,7 @@ import UIKit
 
 protocol MainpagePresentationLogic
 {
-  func presentSomething(response: Mainpage.Something.Response)
+    func fetchedWeather(response: Mainpage.FetchWeatherModel.Response)
 }
 
 class MainpagePresenter: MainpagePresentationLogic
@@ -23,9 +23,10 @@ class MainpagePresenter: MainpagePresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: Mainpage.Something.Response)
-  {
-    let viewModel = Mainpage.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    func fetchedWeather(response: Mainpage.FetchWeatherModel.Response) {
+        let viewModel = Mainpage.FetchWeatherModel.ViewModel(status: response.status)
+        viewController?.displayFetchedWeather(viewModel: viewModel)
+    }
+    
+
 }

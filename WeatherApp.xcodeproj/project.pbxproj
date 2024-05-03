@@ -19,6 +19,8 @@
 		DAB28B402BE4EB2D001FC02E /* MainpageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB28B3A2BE4EB2D001FC02E /* MainpageViewController.swift */; };
 		DAB28B412BE4EB2D001FC02E /* MainpageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB28B3B2BE4EB2D001FC02E /* MainpageInteractor.swift */; };
 		DAB28B432BE4FA91001FC02E /* Mainpage.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB28B422BE4FA91001FC02E /* Mainpage.xib */; };
+		DADCEF392BE51B110008E95A /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF382BE51B110008E95A /* NetworkAPI.swift */; };
+		DADCEF3C2BE51B810008E95A /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF3B2BE51B810008E95A /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		DAB28B3A2BE4EB2D001FC02E /* MainpageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageViewController.swift; sourceTree = "<group>"; };
 		DAB28B3B2BE4EB2D001FC02E /* MainpageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageInteractor.swift; sourceTree = "<group>"; };
 		DAB28B422BE4FA91001FC02E /* Mainpage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Mainpage.xib; sourceTree = "<group>"; };
+		DADCEF382BE51B110008E95A /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
+		DADCEF3B2BE51B810008E95A /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 		DAB28B1B2BE4E9C6001FC02E /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				DADCEF3A2BE51B790008E95A /* Model */,
+				DADCEF362BE51AF00008E95A /* Network */,
 				DAB28B302BE4EAE5001FC02E /* Feature */,
 				DAB28B1C2BE4E9C6001FC02E /* AppDelegate.swift */,
 				DAB28B1E2BE4E9C6001FC02E /* SceneDelegate.swift */,
@@ -115,6 +121,22 @@
 				DAB28B422BE4FA91001FC02E /* Mainpage.xib */,
 			);
 			path = Xib;
+			sourceTree = "<group>";
+		};
+		DADCEF362BE51AF00008E95A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DADCEF382BE51B110008E95A /* NetworkAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DADCEF3A2BE51B790008E95A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DADCEF3B2BE51B810008E95A /* WeatherModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB28B212BE4E9C6001FC02E /* ViewController.swift in Sources */,
+				DADCEF392BE51B110008E95A /* NetworkAPI.swift in Sources */,
 				DAB28B1D2BE4E9C6001FC02E /* AppDelegate.swift in Sources */,
 				DAB28B3C2BE4EB2D001FC02E /* MainpagePresenter.swift in Sources */,
 				DAB28B3D2BE4EB2D001FC02E /* MainpageWorker.swift in Sources */,
@@ -197,6 +220,7 @@
 				DAB28B402BE4EB2D001FC02E /* MainpageViewController.swift in Sources */,
 				DAB28B412BE4EB2D001FC02E /* MainpageInteractor.swift in Sources */,
 				DAB28B1F2BE4E9C6001FC02E /* SceneDelegate.swift in Sources */,
+				DADCEF3C2BE51B810008E95A /* WeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

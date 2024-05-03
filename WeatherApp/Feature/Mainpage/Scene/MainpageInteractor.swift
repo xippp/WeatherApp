@@ -14,7 +14,7 @@ import UIKit
 
 protocol MainpageBusinessLogic
 {
-  func doSomething(request: Mainpage.Something.Request)
+    func fetchWeather(request: Mainpage.FetchWeatherModel.Request)
 }
 
 protocol MainpageDataStore
@@ -26,16 +26,26 @@ class MainpageInteractor: MainpageBusinessLogic, MainpageDataStore
 {
   var presenter: MainpagePresentationLogic?
   var worker: MainpageWorker?
+    let network = NetworkAPI()
+    var allData: WeatherModel?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: Mainpage.Something.Request)
-  {
-    worker = MainpageWorker()
-    worker?.doSomeWork()
     
-    let response = Mainpage.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    func fetchWeather(request: Mainpage.FetchWeatherModel.Request) {
+        
+        network.callGetWeatherAPI { result in
+            switch result {
+            case .success(let data):
+                self.allData = data
+                let response = Mainpage.FetchWeatherModel.Response(status: .success)
+                self.presenter?.fetchedWeather(response: response)
+            case .failure(let failure):
+                let response = Mainpage.FetchWeatherModel.Response(status: .failure(failure))
+                self.presenter?.fetchedWeather(response: response)
+            }
+        }
+    }
+
 }
