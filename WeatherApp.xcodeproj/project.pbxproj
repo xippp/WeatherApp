@@ -31,6 +31,7 @@
 		DADCEF532BE54DA30008E95A /* SelectDateWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF4D2BE54DA30008E95A /* SelectDateWeatherViewController.swift */; };
 		DADCEF542BE54DA30008E95A /* SelectDateWeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF4E2BE54DA30008E95A /* SelectDateWeatherInteractor.swift */; };
 		DADCEF562BE54DB10008E95A /* SelectDateWeather.xib in Resources */ = {isa = PBXBuildFile; fileRef = DADCEF552BE54DB10008E95A /* SelectDateWeather.xib */; };
+		DADCEF582BE54F8C0008E95A /* DisplayWeatherTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCEF572BE54F8C0008E95A /* DisplayWeatherTimeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		DADCEF4D2BE54DA30008E95A /* SelectDateWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateWeatherViewController.swift; sourceTree = "<group>"; };
 		DADCEF4E2BE54DA30008E95A /* SelectDateWeatherInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateWeatherInteractor.swift; sourceTree = "<group>"; };
 		DADCEF552BE54DB10008E95A /* SelectDateWeather.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDateWeather.xib; sourceTree = "<group>"; };
+		DADCEF572BE54F8C0008E95A /* DisplayWeatherTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayWeatherTimeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				DADCEF3B2BE51B810008E95A /* WeatherModel.swift */,
+				DADCEF572BE54F8C0008E95A /* DisplayWeatherTimeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				DAB28B3C2BE4EB2D001FC02E /* MainpagePresenter.swift in Sources */,
 				DAB28B3D2BE4EB2D001FC02E /* MainpageWorker.swift in Sources */,
 				DAB28B3E2BE4EB2D001FC02E /* MainpageRouter.swift in Sources */,
+				DADCEF582BE54F8C0008E95A /* DisplayWeatherTimeModel.swift in Sources */,
 				DAB28B3F2BE4EB2D001FC02E /* MainpageModels.swift in Sources */,
 				DADCEF3F2BE5281C0008E95A /* WeatherDate.swift in Sources */,
 				DADCEF452BE5323A0008E95A /* ShowDailyWeatherTableViewCell.swift in Sources */,

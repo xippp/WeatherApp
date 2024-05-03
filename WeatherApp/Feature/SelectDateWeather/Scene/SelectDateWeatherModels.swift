@@ -16,16 +16,17 @@ enum SelectDateWeather
 {
   // MARK: Use cases
   
-  enum Something
-  {
-    struct Request
-    {
+    enum GetDataToDisplay {
+        struct Request {
+            
+        }
+        
+        struct Response {
+            var dataDisplay: DisplayWeatherTimeModel
+        }
+        
+        struct ViewModel {
+            var dataDisplay: DisplayWeatherTimeModel
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

@@ -89,6 +89,7 @@ class MainpageViewController: UIViewController
   override func viewDidLoad()
   {
     super.viewDidLoad()
+      self.navigationController?.isNavigationBarHidden = true
     fetchWeather()
   }
   
@@ -171,7 +172,7 @@ extension MainpageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        selectWeatherDate(index: indexPath.row)
     }
     
 }

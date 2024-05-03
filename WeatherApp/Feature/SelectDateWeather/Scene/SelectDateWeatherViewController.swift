@@ -12,17 +12,38 @@
 
 import UIKit
 
-protocol SelectDateWeatherDisplayLogic: class
-{
-  func displaySomething(viewModel: SelectDateWeather.Something.ViewModel)
-}
 
-class SelectDateWeatherViewController: UIViewController, SelectDateWeatherDisplayLogic
+class SelectDateWeatherViewController: UIViewController
 {
   var interactor: SelectDateWeatherBusinessLogic?
   var router: (NSObjectProtocol & SelectDateWeatherRoutingLogic & SelectDateWeatherDataPassing)?
-
-  // MARK: Object lifecycle
+    var dataDispaly: DisplayWeatherTimeModel?
+//    MARK: -IBOutlet Property
+    
+    @IBOutlet weak var titleDateLabel: UILabel!
+    
+    @IBOutlet weak var backButtonView: UIButton! {
+        didSet {
+            backButtonView.setTitle("", for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var timeWeatherTableView: UITableView! {
+        didSet {
+            timeWeatherTableView.dataSource = self
+            timeWeatherTableView.delegate = self
+            timeWeatherTableView.register(UINib(nibName: "ShowDailyWeatherTableViewCell", bundle: nil), forCellReuseIdentifier: "DailyWeatherCell")
+        }
+    }
+    
+//    MARK: -IBAction
+    
+    
+    @IBAction func backViewAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   {
@@ -69,21 +90,48 @@ class SelectDateWeatherViewController: UIViewController, SelectDateWeatherDispla
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+      self.navigationController?.isNavigationBarHidden = true
+    getDataToDisplay()
   }
   
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = SelectDateWeather.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: SelectDateWeather.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+
+    func getDataToDisplay() {
+        let request = SelectDateWeather.GetDataToDisplay.Request()
+        interactor?.getDataToDisplay(request: request)
+    }
+
+}
+
+protocol SelectDateWeatherDisplayLogic: class
+{
+    func displayGetDataToDisplay(viewModel: SelectDateWeather.GetDataToDisplay.ViewModel)
+}
+
+
+extension SelectDateWeatherViewController: SelectDateWeatherDisplayLogic {
+
+    func displayGetDataToDisplay(viewModel: SelectDateWeather.GetDataToDisplay.ViewModel) {
+        self.dataDispaly = viewModel.dataDisplay
+        titleDateLabel.text = viewModel.dataDisplay.titleDate
+        timeWeatherTableView.reloadData()
+    }
+}
+
+//MARK: -TableView DataSource and Delegate
+
+extension SelectDateWeatherViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.dataDispaly?.timeArray.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyWeatherCell", for: indexPath) as? ShowDailyWeatherTableViewCell else { return UITableViewCell() }
+        cell.firstLabel.text = self.dataDispaly?.timeArray[indexPath.row]
+        cell.midLabel.isHidden = true
+        cell.lastLabel.text = self.dataDispaly?.tempArray[indexPath.row]
+        return cell
+    }
+    
+    
 }

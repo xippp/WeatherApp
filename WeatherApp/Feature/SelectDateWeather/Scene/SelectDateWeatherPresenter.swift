@@ -14,7 +14,7 @@ import UIKit
 
 protocol SelectDateWeatherPresentationLogic
 {
-  func presentSomething(response: SelectDateWeather.Something.Response)
+    func presentGetDataToDisplay(response: SelectDateWeather.GetDataToDisplay.Response)
 }
 
 class SelectDateWeatherPresenter: SelectDateWeatherPresentationLogic
@@ -23,9 +23,8 @@ class SelectDateWeatherPresenter: SelectDateWeatherPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: SelectDateWeather.Something.Response)
-  {
-    let viewModel = SelectDateWeather.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    func presentGetDataToDisplay(response: SelectDateWeather.GetDataToDisplay.Response) {
+        let viewModel = SelectDateWeather.GetDataToDisplay.ViewModel(dataDisplay: response.dataDisplay)
+        viewController?.displayGetDataToDisplay(viewModel: viewModel)
+    }
 }

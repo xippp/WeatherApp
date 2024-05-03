@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = MainpageViewController(nibName: "Mainpage", bundle: nil) // Your initial view controller.
         window.makeKeyAndVisible()
+        window.rootViewController = UINavigationController(rootViewController: MainpageViewController(nibName: "Mainpage", bundle: nil))
         self.window = window
     }
 

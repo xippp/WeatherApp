@@ -14,7 +14,7 @@ import UIKit
 
 protocol SelectDateWeatherBusinessLogic
 {
-  func doSomething(request: SelectDateWeather.Something.Request)
+    func getDataToDisplay(request: SelectDateWeather.GetDataToDisplay.Request)
 }
 
 protocol SelectDateWeatherDataStore
@@ -27,18 +27,27 @@ protocol SelectDateWeatherDataStore
 
 class SelectDateWeatherInteractor: SelectDateWeatherBusinessLogic, SelectDateWeatherDataStore
 {
+    var titleDate: String = ""
+    
+    var timeArray: [String] = []
+    
+    var tempArray: [String] = []
+    
+    var tempUnit: String = ""
+    
   var presenter: SelectDateWeatherPresentationLogic?
   var worker: SelectDateWeatherWorker?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: SelectDateWeather.Something.Request)
-  {
-    worker = SelectDateWeatherWorker()
-    worker?.doSomeWork()
+    func getDataToDisplay(request: SelectDateWeather.GetDataToDisplay.Request) {
+        let dataDisplay = DisplayWeatherTimeModel(titleDate: self.titleDate,
+                                                  timeArray: self.timeArray,
+                                                  tempArray: self.tempArray,
+                                                  tempUnit: self.tempUnit)
+        let response = SelectDateWeather.GetDataToDisplay.Response(dataDisplay: dataDisplay)
+        presenter?.presentGetDataToDisplay(response: response)
+    }
     
-    let response = SelectDateWeather.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
 }

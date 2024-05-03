@@ -74,9 +74,20 @@ class MainpageInteractor: MainpageBusinessLogic, MainpageDataStore
     func selectWeatherDate(request: Mainpage.SelectWeatherDate.Request) {
         let selectDate = self.allData?.daily.time[request.index] ?? ""
         let weatherDate = WeatherDate()
+        var startTemp = request.index * 24
+        var stopTemp = 0
+        var timeFilter: [String] = []
+        if request.index != 0 {
+            stopTemp = (request.index * 24) - 1
+        } else {
+            stopTemp = 23
+        }
         titleDate = weatherDate.formatDateTitle(date: selectDate)
-        timeArray = weatherDate.getTimeDate(dates: self.allData?.hourly.time ?? [])
-        tempArray = self.allData?.hourly.temperature2M.map { String($0) } ?? []
+        for i in startTemp...stopTemp {
+            timeFilter.append(String(self.allData?.hourly.time[i] ?? ""))
+            tempArray.append(String(self.allData?.hourly.temperature2M[i] ?? 0.0))
+        }
+        timeArray = weatherDate.getTimeDate(dates: timeFilter)
         tempUnit = self.allData?.hourlyUnits.temperature2M ?? ""
         let response = Mainpage.SelectWeatherDate.Response()
         self.presenter?.presentSelectWeatherDate(response: response)
