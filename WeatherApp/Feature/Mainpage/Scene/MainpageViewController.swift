@@ -17,6 +17,24 @@ class MainpageViewController: UIViewController
   var interactor: MainpageBusinessLogic?
   var router: (NSObjectProtocol & MainpageRoutingLogic & MainpageDataPassing)?
 
+//    MARK: -IBOutlet Property
+    
+    
+    @IBOutlet weak var temTitleLabel: UILabel! {
+        didSet {
+            temTitleLabel.text = "28/38"
+        }
+    }
+    
+    
+    @IBOutlet weak var weatherTableView: UITableView! {
+        didSet {
+            weatherTableView.delegate = self
+            weatherTableView.dataSource = self
+        }
+    }
+    
+    
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -90,4 +108,19 @@ extension MainpageViewController: MainpageDisplayLogic {
     {
       //nameTextField.text = viewModel.name
     }
+}
+
+//MARK: -DataSource and Delegate TableView
+
+extension MainpageViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    
 }
